@@ -2,8 +2,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AdCopy, FormState, GroundingSource } from '../types';
 
-// Always use process.env.API_KEY as per guidelines
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Use Vite's way of accessing the API key
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const adSchema = {
     type: Type.OBJECT,
